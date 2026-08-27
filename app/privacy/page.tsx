@@ -36,8 +36,7 @@ export default function PrivacyPage() {
         </li>
         <li>
           <strong>Complaint content</strong> — the title, description, category, location, priority and
-          photographs you attach when raising or resolving a complaint, together with your upvotes and any
-          replies you post in a complaint thread.
+          photographs you attach when raising or resolving a complaint.
         </li>
         <li>
           <strong>Role and department</strong> — whether your account is a resident, staff or admin account,
@@ -69,9 +68,9 @@ export default function PrivacyPage() {
 
       <h2>5. Who can see your complaints</h2>
       <p>
-        Your data is scoped to your facility. Residents see their own complaints and the complaints they can
-        upvote. Staff see only the complaints routed to their department. Administrators of your facility can
-        see all complaints, accounts and departments within it. No other facility can see your data.
+        Your data is scoped to your facility. Residents see their own complaints. Staff see only the
+        complaints routed to their department. Administrators of your facility can see all complaints,
+        accounts and departments within it. No other facility can see your data.
       </p>
 
       <h2>6. Sharing and service providers</h2>

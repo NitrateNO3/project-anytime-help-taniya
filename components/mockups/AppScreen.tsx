@@ -158,9 +158,9 @@ export function AppScreen({ variant }: { variant: ScreenVisual }) {
 
         <div className="space-y-2 px-4">
           {[
-            { title: 'Leaking tap in corridor', meta: 'Plumbing · Block A, 2F', status: 'In Progress', votes: 4 },
-            { title: 'Street light out near Gate 2', meta: 'Electrical · Main gate', status: 'Pending', votes: 12 },
-            { title: 'Lift lobby not cleaned', meta: 'Cleaning · Block C', status: 'Done', votes: 2 },
+            { title: 'Leaking tap in corridor', meta: 'Plumbing · Block A, 2F', status: 'In Progress', age: '2d' },
+            { title: 'Street light out near Gate 2', meta: 'Electrical · Main gate', status: 'Pending', age: '4h' },
+            { title: 'Lift lobby not cleaned', meta: 'Cleaning · Block C', status: 'Done', age: '1w' },
           ].map((c) => (
             <div key={c.title} className="rounded-xl bg-white p-2.5 shadow-xs ring-1 ring-ink-100">
               <div className="flex items-start gap-2.5">
@@ -174,12 +174,7 @@ export function AppScreen({ variant }: { variant: ScreenVisual }) {
                   </span>
                   <span className="mt-1 flex items-center justify-between gap-2">
                     <span className="truncate text-[0.5rem] leading-tight text-ink-400">{c.meta}</span>
-                    <span className="flex shrink-0 items-center gap-0.5 text-[0.5rem] font-semibold text-brand-600">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" className="h-2 w-2">
-                        <path d="M12 6l6 7h-3.4v5H9.4v-5H6l6-7z" strokeLinejoin="round" />
-                      </svg>
-                      {c.votes}
-                    </span>
+                    <span className="shrink-0 text-[0.5rem] font-semibold text-ink-400">{c.age}</span>
                   </span>
                 </span>
               </div>
@@ -247,106 +242,6 @@ export function AppScreen({ variant }: { variant: ScreenVisual }) {
               </Card>
             ))}
           </div>
-        </div>
-        <TabBar />
-      </Body>
-    );
-  }
-
-  if (variant === 'chat') {
-    return (
-      <Body>
-        <TopBar title="Complaint #1042" sub="Chat with Plumbing" back />
-        <div className="space-y-2 px-3 py-2.5">
-          {[
-            { from: 'them', name: 'R. Kumar · Plumbing', text: 'On my way — will be there by 4pm today.' },
-            { from: 'me', name: 'You', text: 'Perfect. The tap is right outside flat 204.' },
-            { from: 'them', name: 'R. Kumar · Plumbing', text: 'Washer replaced. Uploading the after photo now.' },
-          ].map((m, i) => (
-            <div key={i} className={`flex ${m.from === 'me' ? 'justify-end' : 'justify-start'}`}>
-              <div className="max-w-[82%]">
-                <p className={`mb-1 text-[0.4375rem] font-medium uppercase tracking-wide text-ink-400 ${m.from === 'me' ? 'text-right' : ''}`}>
-                  {m.name}
-                </p>
-                <p
-                  className={`rounded-xl px-2.5 py-1.5 text-[0.5625rem] leading-snug ${
-                    m.from === 'me'
-                      ? 'rounded-br-sm bg-brand-600 text-white'
-                      : 'rounded-bl-sm bg-white text-ink-700 shadow-xs ring-1 ring-ink-100'
-                  }`}
-                >
-                  {m.text}
-                </p>
-              </div>
-            </div>
-          ))}
-          <div className="flex justify-start">
-            <div className="max-w-[82%]">
-              <div className="rounded-xl rounded-bl-sm bg-white p-1.5 shadow-xs ring-1 ring-ink-100">
-                <span className="block h-14 w-24 rounded-lg bg-ink-100" aria-hidden="true" />
-                <p className="mt-1 px-0.5 text-[0.5rem] text-ink-400">After · resolved</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="absolute inset-x-3 bottom-[3.75rem] flex items-center gap-2 rounded-full bg-white px-3 py-2 shadow-sm ring-1 ring-ink-100" aria-hidden="true">
-          <span className="text-[0.5625rem] text-ink-300">Write a reply…</span>
-          <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-brand-600">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" className="h-2.5 w-2.5">
-              <path d="M4 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </span>
-        </div>
-        <TabBar />
-      </Body>
-    );
-  }
-
-  if (variant === 'upvote') {
-    return (
-      <Body>
-        <TopBar title="Explore Society" sub="Existing complaints" />
-        <div className="space-y-2 px-3 py-2.5">
-          <div className="flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1.5 shadow-xs ring-1 ring-ink-100" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-2.5 w-2.5 text-ink-300">
-              <circle cx="11" cy="11" r="6.5" />
-              <path d="M20 20l-4.3-4.3" strokeLinecap="round" />
-            </svg>
-            <span className="text-[0.5rem] text-ink-400">street light</span>
-          </div>
-          <p className="px-0.5 pt-0.5 text-[0.5rem] font-semibold uppercase tracking-wide text-ink-400">
-            Already reported
-          </p>
-          {[
-            { title: 'Street light out near Gate 2', meta: 'Electrical · 3 days ago', votes: 12, voted: true },
-            { title: 'Basement corridor light flickering', meta: 'Electrical · 1 day ago', votes: 5, voted: false },
-            { title: 'Lift lobby bulb fused', meta: 'Electrical · 6 hours ago', votes: 2, voted: false },
-          ].map((c) => (
-            <Card key={c.title}>
-              <div className="flex items-start gap-2.5">
-                <span
-                  className={`flex w-8 shrink-0 flex-col items-center rounded-lg py-1 ${
-                    c.voted ? 'bg-brand-600 text-white' : 'bg-ink-50 text-ink-500 ring-1 ring-inset ring-ink-100'
-                  }`}
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-2.5 w-2.5">
-                    <path d="M12 5.5l6 7h-3.4v6H9.4v-6H6l6-7z" strokeLinejoin="round" />
-                  </svg>
-                  <span className="mt-0.5 text-[0.5rem] font-bold leading-none">{c.votes}</span>
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block truncate text-[0.5625rem] font-semibold leading-tight text-ink-900">{c.title}</span>
-                  <span className="mt-1 flex items-center justify-between gap-2">
-                    <span className="truncate text-[0.5rem] leading-tight text-ink-400">{c.meta}</span>
-                    <Chip label={c.voted ? 'In Progress' : 'Pending'} />
-                  </span>
-                </span>
-              </div>
-            </Card>
-          ))}
-          <p className="px-0.5 text-[0.5rem] leading-snug text-ink-400">
-            Found your issue? Upvote it instead of raising a duplicate.
-          </p>
         </div>
         <TabBar />
       </Body>

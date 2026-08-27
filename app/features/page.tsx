@@ -10,7 +10,7 @@ import { features } from '@/config/site';
 export const metadata: Metadata = pageMetadata({
   title: 'Features',
   description:
-    'Photo evidence, live status tracking, threaded chat, smart upvoting, departmental routing and society announcements — every Anytime Help feature in detail.',
+    'Photo evidence, live status tracking, departmental routing and society announcements — every Anytime Help feature in detail.',
   path: '/features/',
 });
 

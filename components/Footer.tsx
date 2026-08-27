@@ -46,19 +46,19 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-ink-800 bg-ink-950 text-ink-300">
+    <footer className="border-t border-ink-200 bg-ink-50 text-ink-600">
       <Container className="py-14 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
-            <Logo variant="light" withTagline />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-400">{site.shortDescription}</p>
-            <StoreButtons tone="dark" className="mt-6" />
+            <Logo withTagline className="h-24" />
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-500">{site.shortDescription}</p>
+            <StoreButtons className="mt-6" />
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-8">
             {footerNav.map((group) => (
               <div key={group.heading}>
-                <h2 className="text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-white">
+                <h2 className="text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-ink-950">
                   {group.heading}
                 </h2>
                 <ul className="mt-4 space-y-3">
@@ -66,7 +66,7 @@ export function Footer() {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="rounded text-sm text-ink-400 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+                        className="rounded text-sm text-ink-500 transition-colors hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                       >
                         {link.label}
                       </Link>
@@ -77,12 +77,12 @@ export function Footer() {
             ))}
 
             <div>
-              <h2 className="text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-white">Contact</h2>
-              <ul className="mt-4 space-y-3 text-sm text-ink-400">
+              <h2 className="text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-ink-950">Contact</h2>
+              <ul className="mt-4 space-y-3 text-sm text-ink-500">
                 <li>
                   <a
                     href={`mailto:${contact.email}`}
-                    className="rounded break-words text-[0.8125rem] transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+                    className="rounded break-words text-[0.8125rem] transition-colors hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                   >
                     {contact.email}
                   </a>
@@ -91,7 +91,7 @@ export function Footer() {
                   <li>
                     <a
                       href={`tel:${contact.phone.replace(/\s/g, '')}`}
-                      className="rounded transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+                      className="rounded transition-colors hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                     >
                       {contact.phone}
                     </a>
@@ -102,7 +102,7 @@ export function Footer() {
 
               {socials.length > 0 && (
                 <>
-                  <h2 className="mt-8 text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-white">
+                  <h2 className="mt-8 text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-ink-950">
                     Follow
                   </h2>
                   <ul className="mt-4 flex flex-wrap gap-2">
@@ -113,7 +113,7 @@ export function Footer() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={s.label}
-                          className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-ink-400 ring-1 ring-inset ring-white/10 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+                          className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white text-ink-500 ring-1 ring-inset ring-ink-200 transition-colors hover:text-brand-600 hover:ring-brand-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                         >
                           <svg
                             viewBox="0 0 24 24"
@@ -137,18 +137,18 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-ink-800 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-ink-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-ink-500">
             © {year} {site.name}. All rights reserved.
           </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-500">
             <li>
-              <Link href="/privacy/" className="rounded transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400">
+              <Link href="/privacy/" className="rounded transition-colors hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link href="/terms/" className="rounded transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400">
+              <Link href="/terms/" className="rounded transition-colors hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">
                 Terms of Service
               </Link>
             </li>

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-type Variant = 'primary' | 'secondary' | 'ghost' | 'inverse';
+type Variant = 'primary' | 'secondary' | 'ghost';
 type Size = 'sm' | 'md' | 'lg';
 
 const base =
@@ -14,8 +14,6 @@ const variants: Record<Variant, string> = {
   secondary:
     'bg-white text-ink-800 ring-1 ring-inset ring-ink-200 shadow-xs hover:bg-ink-50 hover:ring-ink-300 active:bg-ink-100',
   ghost: 'text-ink-700 hover:bg-ink-100 active:bg-ink-200',
-  inverse:
-    'bg-white text-ink-950 shadow-sm hover:bg-ink-100 active:bg-ink-200 focus-visible:ring-offset-ink-950',
 };
 
 const sizes: Record<Size, string> = {

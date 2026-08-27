@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/seo';
-import { LogoMark } from '@/components/Logo';
+import { Logo } from '@/components/Logo';
 import { PageHeader } from '@/components/PageHeader';
 import { CTA } from '@/components/sections/CTA';
 import { Container, Section } from '@/components/ui/Section';
@@ -38,7 +38,7 @@ export default function AboutPage() {
                 <ul>
                   <li>
                     <strong>A mobile app for residents</strong> — raise a complaint with a photo, track it
-                    live, upvote issues someone else already reported, and read society announcements.
+                    live, see the resolution photo when it is closed, and read society announcements.
                   </li>
                   <li>
                     <strong>A workspace for staff</strong> — every worker sees only the complaints routed to
@@ -83,12 +83,9 @@ export default function AboutPage() {
 
             <aside className="lg:col-span-5">
               <div className="rounded-card-lg border border-ink-200/70 bg-ink-50 p-6 sm:p-8">
-                <div className="flex items-center gap-4">
-                  <LogoMark className="h-16 w-16 shrink-0" />
-                  <div>
-                    <p className="font-display text-base font-bold text-ink-950">{site.name}</p>
-                    <p className="text-xs uppercase tracking-[0.12em] text-ink-400">{site.tagline}</p>
-                  </div>
+                <div className="flex flex-col items-center text-center">
+                  <Logo className="h-28" />
+                  <p className="mt-3 text-xs uppercase tracking-[0.12em] text-ink-400">{site.tagline}</p>
                 </div>
 
                 <h2 className="mt-7 text-base font-semibold text-ink-950">At a glance</h2>

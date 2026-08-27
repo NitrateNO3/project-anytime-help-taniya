@@ -6,7 +6,7 @@ import type { Config } from 'tailwindcss';
  *  - brand.500 (#3B76F0) — the lighter blue at the top of its gradient
  *  - accent.400 (#22D3D8) — the teal outline around the heart
  *  - peach.300 (#FFC4A6) — the cupped hands
- *  - ink.950   (#0B1120) — the dark ground used by the hero and footer
+ *  - ink.950   (#0B1120) — the near-black used for headings and app chrome
  */
 const config: Config = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './config/**/*.{ts,tsx}'],

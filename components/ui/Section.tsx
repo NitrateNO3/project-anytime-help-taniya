@@ -10,13 +10,12 @@ export function Container({
   return <div className={`mx-auto w-full max-w-container px-5 sm:px-6 lg:px-8 ${className}`}>{children}</div>;
 }
 
-type Tone = 'default' | 'muted' | 'brand' | 'ink';
+type Tone = 'default' | 'muted' | 'brand';
 
 const tones: Record<Tone, string> = {
   default: 'bg-white',
   muted: 'bg-ink-50',
   brand: 'bg-brand-50/60',
-  ink: 'bg-ink-950 text-white',
 };
 
 export function Section({
@@ -35,7 +34,7 @@ export function Section({
 }) {
   const top = compactTop ? 'pt-12 sm:pt-14 lg:pt-16' : 'pt-16 sm:pt-20 lg:pt-28';
   return (
-    <section id={id} className={`${tones[tone]} scroll-mt-20 ${top} pb-16 sm:pb-20 lg:pb-28 ${className}`}>
+    <section id={id} className={`${tones[tone]} scroll-mt-24 ${top} pb-16 sm:pb-20 lg:pb-28 ${className}`}>
       {children}
     </section>
   );
@@ -46,19 +45,17 @@ export function SectionHeading({
   title,
   body,
   align = 'center',
-  tone = 'default',
   as: Heading = 'h2',
 }: {
   eyebrow?: string;
   title: ReactNode;
   body?: ReactNode;
   align?: 'center' | 'left';
-  tone?: 'default' | 'ink';
   as?: 'h1' | 'h2' | 'h3';
 }) {
   const alignment = align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl';
-  const titleColor = tone === 'ink' ? 'text-white' : 'text-ink-950';
-  const bodyColor = tone === 'ink' ? 'text-ink-300' : 'text-ink-500';
+  const titleColor = 'text-ink-950';
+  const bodyColor = 'text-ink-500';
 
   return (
     <div className={alignment}>

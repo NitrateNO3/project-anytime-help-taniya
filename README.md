@@ -30,7 +30,6 @@ Everything below lives in **`config/site.ts`**, apart from the contact endpoint.
 | What | Where | Current state |
 |---|---|---|
 | Production domain | `site.url` | `https://anytimehelp.com` — change if the domain differs. Drives canonical URLs, Open Graph tags and `sitemap.xml`. |
-| **Admin dashboard URL** | `adminUrl` | **Empty.** Every "Admin Login" button renders disabled and labelled *coming soon* until this is filled in. |
 | App Store link | `stores.appStore` | `null` → badge shows "Coming soon". |
 | Google Play link | `stores.googlePlay` | `null` → badge shows "Coming soon". |
 | Support email | `contact.email` | `support@anytimehelp.com` |
@@ -61,7 +60,7 @@ components/
   sections/         One file per landing-page section
   mockups/          PhoneFrame device shell + AppScreen UI renderings
   ui/               Section, Container, Button, Reveal primitives
-  Navbar  Footer  Logo  Icon  StoreButtons  AdminButton  ContactForm
+  Navbar  Footer  Logo  Icon  StoreButtons  ContactForm
 config/
   site.ts           All copy and settings that change without a redesign
   nav.ts            Header and footer navigation
@@ -73,14 +72,14 @@ public/
 
 ### Landing page sections, in order
 
-1. **Hero** — "Smart Society, Smart Maintenance.", Download App + Admin Login CTAs, live app screen
-2. **Core Features** — Photo Evidence · Live Tracking · Threaded Chat · Smart Upvoting
+1. **Hero** — "Smart Society, Smart Maintenance.", Download App CTA, live app screen
+2. **Core Features** — Photo Evidence · Live Tracking · Departmental Routing · Announcements
 3. **Problem** — what Anytime Help replaces
 4. **Evidence** — the Before/After photo proof band
 5. **Feature Showcase** — four detailed features (all six on `/features`)
 6. **How It Works** — Spot → Snap & Submit → Staff Assigned → Resolved
 7. **Tailored for Everyone** — Residents · Staff · Admins
-8. **Download** — store badges and the admin dashboard entry point
+8. **Download** — store badges and the app download entry point
 9. **FAQ** — native `<details>`, works without JavaScript
 10. **CTA** and **Footer**
 

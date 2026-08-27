@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { AdminButton } from '@/components/AdminButton';
 import { Logo } from '@/components/Logo';
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Section';
@@ -49,13 +48,13 @@ export function Navbar() {
         }`}
       >
         <Container>
-          <nav className="flex h-16 items-center justify-between gap-6 lg:h-[4.5rem]" aria-label="Main">
+          <nav className="flex h-20 items-center justify-between gap-6 lg:h-24" aria-label="Main">
             <Link
               href="/"
               className="-m-2 rounded-lg p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
               aria-label={`${site.name} — home`}
             >
-              <Logo />
+              <Logo className="h-14 lg:h-[4.5rem]" />
             </Link>
 
             {/* Desktop navigation */}
@@ -78,7 +77,6 @@ export function Navbar() {
             </ul>
 
             <div className="hidden items-center gap-2.5 lg:flex">
-              <AdminButton size="sm" />
               <Button href="/#download" size="sm" data-analytics="download-click">
                 Download App
               </Button>
@@ -108,7 +106,7 @@ export function Navbar() {
       {open && (
         <div
           id="mobile-menu"
-          className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto overscroll-contain border-t border-ink-200 bg-white lg:hidden"
+          className="fixed inset-x-0 bottom-0 top-20 z-40 overflow-y-auto overscroll-contain border-t border-ink-200 bg-white lg:hidden"
         >
           <Container className="py-4">
             <ul className="flex flex-col">
@@ -130,7 +128,6 @@ export function Navbar() {
               <Button href="/#download" size="lg" className="w-full">
                 Download App
               </Button>
-              <AdminButton size="lg" className="w-full" />
             </div>
           </Container>
         </div>

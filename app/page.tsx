@@ -40,8 +40,8 @@ export default function HomePage() {
       <Stats />
       <Problem />
       <Evidence />
-      {/* Four features on the homepage; the full set lives on /features. */}
-      <FeatureShowcase limit={4} />
+      {/* A preview on the homepage; the full set lives on /features. */}
+      <FeatureShowcase limit={3} />
       <HowItWorks />
       <Roles />
       <AppShowcase />

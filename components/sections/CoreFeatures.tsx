@@ -11,7 +11,7 @@ export function CoreFeatures() {
         <SectionHeading
           eyebrow="Core features"
           title="Everything a maintenance request needs — in one ticket"
-          body="Photo proof, a live status, a conversation with the person fixing it, and a way to avoid the same issue being reported fifteen times."
+          body="Photo proof, a live status, automatic routing to the right department, and society-wide announcements — all in one place."
         />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
           {coreFeatures.map((item, i) => (

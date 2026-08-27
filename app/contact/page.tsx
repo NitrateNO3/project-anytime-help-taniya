@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/seo';
 import { ContactForm } from '@/components/ContactForm';
-import { AdminButton } from '@/components/AdminButton';
 import { PageHeader } from '@/components/PageHeader';
 import { StoreButtons } from '@/components/StoreButtons';
 import { Container, Section } from '@/components/ui/Section';
@@ -80,7 +79,6 @@ export default function ContactPage() {
                   <p className="mt-1.5 text-sm leading-relaxed text-ink-500">
                     Admins and staff work from the web dashboard.
                   </p>
-                  <AdminButton size="md" className="mt-4" />
                 </div>
               </div>
 

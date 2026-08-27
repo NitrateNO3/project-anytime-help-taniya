@@ -1,9 +1,8 @@
 import { AppScreenFrame } from '@/components/mockups/AppScreen';
-import { AdminButton } from '@/components/AdminButton';
 import { StoreButtons } from '@/components/StoreButtons';
 import { Container, Section } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
-import { adminUrl, site, stores } from '@/config/site';
+import { site, stores } from '@/config/site';
 
 export function AppShowcase() {
   const storesLive = Boolean(stores.appStore || stores.googlePlay);
@@ -19,7 +18,7 @@ export function AppShowcase() {
             </h2>
             <p className="mt-5 text-base leading-relaxed text-ink-500 sm:text-lg">
               Raise a complaint from the corridor where you found the problem, follow it while you get on with
-              your day, and reply to the plumber without ever sharing a phone number.
+              your day, and see the resolution photo the moment the job is closed.
             </p>
 
             <div className="mt-8">
@@ -39,12 +38,6 @@ export function AppShowcase() {
                 Admins and staff work from the web dashboard — full oversight of every complaint, department
                 and announcement.
               </p>
-              <AdminButton size="md" variant="secondary" className="mt-4" />
-              {!adminUrl && (
-                <p className="mt-3 max-w-sm text-xs leading-relaxed text-ink-500">
-                  The admin dashboard link goes live once your facility is set up.
-                </p>
-              )}
             </div>
           </div>
 

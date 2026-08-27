@@ -58,7 +58,10 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
   icons: {
-    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    icon: [
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
     apple: [{ url: '/apple-icon.png', sizes: '180x180' }],
   },
   manifest: '/site.webmanifest',
@@ -81,8 +84,6 @@ const applicationSchema = {
   featureList: [
     'Photo evidence on every complaint',
     'Live status tracking from Pending to Done',
-    'Threaded chat with maintenance staff',
-    'Upvoting to prevent duplicate tickets',
     'Departmental routing',
     'Society-wide announcements',
   ],

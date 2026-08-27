@@ -47,13 +47,6 @@ export const stores: { appStore: string | null; googlePlay: string | null } = {
 };
 
 /**
- * The Admin Web Dashboard. Set this to the deployed dashboard URL and every
- * "Admin Login" button across the site becomes live. While it is empty the
- * buttons stay visible but disabled, labelled "Admin Login — coming soon".
- */
-export const adminUrl = '';
-
-/**
  * Contact form endpoint. Accepts any service that takes a JSON POST
  * (Formspree, Resend, your own API route, etc.). While unset the form tells
  * the visitor it is not connected and offers the email fallback instead of
@@ -79,14 +72,14 @@ export const coreFeatures: CoreFeature[] = [
     body: 'Real-time status updates as your complaint moves from Pending to In Progress to Done.',
   },
   {
-    icon: 'chat',
-    title: 'Threaded Chat',
-    body: 'Talk directly to the maintenance staff inside the ticket — no phone tag, no lost context.',
+    icon: 'route',
+    title: 'Departmental Routing',
+    body: 'Every complaint lands with the right department automatically — no manual triage in the middle.',
   },
   {
-    icon: 'upvote',
-    title: 'Smart Upvoting',
-    body: 'Already reported? Upvote the existing ticket instead of duplicating it and push its priority up.',
+    icon: 'megaphone',
+    title: 'Announcements',
+    body: 'Publish a notice once and it reaches every resident in the app, right beside their complaints.',
   },
 ];
 
@@ -97,7 +90,6 @@ export const coreFeatures: CoreFeature[] = [
 export const problems: string[] = [
   'Complaints lost in WhatsApp groups and phone calls',
   'No proof that a job was actually finished',
-  'The same broken light reported fifteen separate times',
   'Residents chasing the office for a status update',
   'Staff sifting through issues that are not theirs',
   'No record of how long anything actually took',
@@ -121,8 +113,6 @@ export type ScreenVisual =
   | 'complaint'
   | 'raise'
   | 'tracking'
-  | 'chat'
-  | 'upvote'
   | 'announcements'
   | 'staff'
   | 'admin';
@@ -161,40 +151,8 @@ export const features: Feature[] = [
     visual: 'tracking',
   },
   {
-    id: 'threaded-chat',
-    eyebrow: 'Feature 03',
-    title: 'Threaded Chat',
-    summary: 'One conversation, inside the ticket it belongs to — so context is never lost between shifts.',
-    points: [
-      'Residents and staff reply in-thread',
-      'Ask for access times or extra detail',
-      'Every message tied to the complaint',
-      'No shared numbers, no group chats',
-      'Readable history for the admin',
-      'Notifications when someone responds',
-    ],
-    icon: 'chat',
-    visual: 'chat',
-  },
-  {
-    id: 'smart-upvoting',
-    eyebrow: 'Feature 04',
-    title: 'Smart Upvoting',
-    summary: 'Shared problems get one ticket and a real priority signal, instead of fifteen duplicates.',
-    points: [
-      'Search before you report',
-      'Upvote an existing complaint',
-      'Higher votes surface to the top',
-      'Admins see genuine urgency',
-      'Staff work one job, not fifteen',
-      'Cleaner, faster queues',
-    ],
-    icon: 'upvote',
-    visual: 'upvote',
-  },
-  {
     id: 'departmental-routing',
-    eyebrow: 'Feature 05',
+    eyebrow: 'Feature 03',
     title: 'Departmental Routing',
     summary: 'Complaints land with the right department automatically — Plumbing, Electrical, Cleaning, Security, HVAC.',
     points: [
@@ -210,7 +168,7 @@ export const features: Feature[] = [
   },
   {
     id: 'announcements',
-    eyebrow: 'Feature 06',
+    eyebrow: 'Feature 04',
     title: 'Announcements & Broadcasts',
     summary: 'Water shutdown at 10am? Publish it once and it reaches every resident inside the app.',
     points: [
@@ -248,8 +206,8 @@ export const roles: Role[] = [
     points: [
       'Raise a complaint with a photo in under a minute',
       'Track it live from Pending to Done',
-      'Upvote an issue someone already reported',
-      'Chat with the assigned staff in the ticket',
+      'See the resolution photo when it is closed',
+      'Get notified as the status changes',
       'See society announcements in one feed',
     ],
     icon: 'home',
@@ -263,7 +221,7 @@ export const roles: Role[] = [
       'Only complaints for your category',
       'Update status as the work progresses',
       'Upload the After photo to close it out',
-      'Reply to residents without sharing your number',
+      'Category and location on every job',
       'Clear priority order for the day',
     ],
     icon: 'tools',
@@ -361,10 +319,6 @@ export const faqs = [
     a: 'Open the app, tap the add button, choose a category such as Plumbing or Electrical, enter the location and a short description, attach a photo, and submit. The ticket reaches the right department immediately.',
   },
   {
-    q: 'What does upvoting do?',
-    a: 'If a problem has already been reported — a broken street light, a lift out of service — you can upvote the existing complaint instead of creating a duplicate. Upvotes raise its priority and show the admin how many people are affected.',
-  },
-  {
     q: 'Can I see proof that the work was done?',
     a: 'Yes. Residents attach a "Before" photo when reporting and staff upload an "After" photo when closing the ticket, so every resolution carries visual evidence.',
   },
@@ -395,8 +349,6 @@ export const faqs = [
 export type IconName =
   | 'camera'
   | 'pulse'
-  | 'chat'
-  | 'upvote'
   | 'route'
   | 'megaphone'
   | 'home'
