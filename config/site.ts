@@ -113,6 +113,7 @@ export type ScreenVisual =
   | 'complaint'
   | 'raise'
   | 'tracking'
+  | 'evidence'
   | 'announcements'
   | 'staff'
   | 'admin';

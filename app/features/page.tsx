@@ -20,21 +20,21 @@ export default function FeaturesPage() {
       <PageHeader
         eyebrow="Features"
         title="Everything Anytime Help does"
-        body="Six capabilities that cover the full life of a maintenance complaint — from the photograph that reports it to the photograph that closes it."
+        body="Four capabilities that cover the full life of a maintenance complaint — from the photograph that reports it to the photograph that closes it."
       />
 
       {/* Jump list — keeps a long page navigable */}
       <div className="border-b border-ink-100 bg-ink-50">
         <Container className="py-5">
           <nav aria-label="Features on this page">
-            <ul className="flex flex-wrap gap-2">
+            <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
               {features.map((feature) => (
                 <li key={feature.id}>
                   <a
                     href={`#${feature.id}`}
-                    className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-medium text-ink-600 ring-1 ring-inset ring-ink-200 transition-colors hover:text-ink-950 hover:ring-ink-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+                    className="flex h-full items-center justify-center gap-2 rounded-lg bg-white px-3 py-2.5 text-center text-sm font-medium text-ink-600 ring-1 ring-inset ring-ink-200 transition-colors hover:text-ink-950 hover:ring-ink-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                   >
-                    <Icon name={feature.icon} className="h-4 w-4 text-brand-600" />
+                    <Icon name={feature.icon} className="h-4 w-4 shrink-0 text-brand-600" />
                     {feature.title}
                   </a>
                 </li>

@@ -1,3 +1,4 @@
+import { AppScreenFrame } from '@/components/mockups/AppScreen';
 import { Container, Section } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 
@@ -44,15 +45,15 @@ export function Evidence() {
 
           <div className="lg:col-span-6">
             <Reveal>
-              <div className="relative mx-auto max-w-[26rem] lg:ml-auto lg:mr-0">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/phone-evidence.jpg"
-                  alt="A phone showing the Anytime Help ticket view with photographs of a security camera and a corridor floating beside it as attached evidence."
-                  width={1050}
-                  height={1400}
-                  loading="lazy"
-                  className="block w-full rounded-card-lg shadow-xl ring-1 ring-ink-200/70 motion-safe:animate-float-slow"
+              <div className="relative mx-auto flex max-w-[26rem] justify-center overflow-hidden rounded-card-lg bg-white/70 px-6 py-10 ring-1 ring-inset ring-brand-100 sm:px-10 sm:py-12 lg:ml-auto lg:mr-0">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-[radial-gradient(26rem_15rem_at_50%_0%,theme(colors.accent.100),transparent_70%)] opacity-70"
+                />
+                <AppScreenFrame
+                  variant="evidence"
+                  className="relative motion-safe:animate-float-slow"
+                  label="Anytime Help app — a resolved complaint showing the Before photo from the resident and the After photo from the staff member who closed it"
                 />
               </div>
             </Reveal>

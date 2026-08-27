@@ -103,7 +103,96 @@ function Body({ children }: { children: React.ReactNode }) {
   return <div className="relative h-[430px] overflow-hidden bg-[#F7F9FD]">{children}</div>;
 }
 
+/**
+ * The "before" and "after" images attached to a ticket. Drawn rather than
+ * photographed so the pair reads as the same corridor tap in both states —
+ * leaking on the left, dry and signed off on the right.
+ */
+function EvidencePhoto({ resolved }: { resolved: boolean }) {
+  return (
+    <svg viewBox="0 0 100 70" className="block h-full w-full" aria-hidden="true">
+      <rect width="100" height="70" fill={resolved ? '#E5E8E3' : '#DCD8CF'} />
+      <g stroke={resolved ? '#D4D9D3' : '#CCC7BC'} strokeWidth="1">
+        <path d="M0 24h100M0 48h100M26 0v70M62 0v70" />
+      </g>
+      <rect y="56" width="100" height="14" fill={resolved ? '#D0D6CF' : '#C5C0B5'} />
+      <g fill="#9AA0A6">
+        <rect x="38" y="18" width="16" height="6" rx="3" />
+        <rect x="42" y="22" width="8" height="12" rx="2" />
+        <rect x="46" y="32" width="4" height="9" rx="2" />
+      </g>
+      {resolved ? (
+        <>
+          <circle cx="77" cy="17" r="9" fill="#16A34A" />
+          <path d="M72.5 17l3 3 6-6" stroke="#fff" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        </>
+      ) : (
+        <>
+          <circle cx="48" cy="46" r="2.4" fill="#5FA8DC" />
+          <circle cx="48" cy="53" r="1.7" fill="#5FA8DC" opacity="0.75" />
+          <ellipse cx="50" cy="62" rx="17" ry="4" fill="#7FBEE6" />
+          <ellipse cx="50" cy="62" rx="9" ry="2" fill="#9BD0EF" />
+        </>
+      )}
+    </svg>
+  );
+}
+
 export function AppScreen({ variant }: { variant: ScreenVisual }) {
+  if (variant === 'evidence') {
+    return (
+      <Body>
+        <TopBar title="Complaint #1042" sub="Plumbing · Block A, 2F" back />
+        <div className="space-y-2 px-3 py-2.5">
+          <Card>
+            <div className="flex items-start justify-between gap-2">
+              <p className="text-[0.625rem] font-semibold leading-tight text-ink-900">Leaking tap in corridor</p>
+              <Chip label="Done" />
+            </div>
+            <p className="mt-1 text-[0.5rem] leading-tight text-ink-400">Raised 2 Aug · Resolved 4 Aug</p>
+          </Card>
+
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { label: 'Before', by: 'Aman S. · resident', when: '2 Aug, 09:12', resolved: false },
+              { label: 'After', by: 'R. Kumar · plumbing', when: '4 Aug, 16:38', resolved: true },
+            ].map((shot) => (
+              <Card key={shot.label} className="!p-1.5">
+                <span className="block overflow-hidden rounded-lg">
+                  <EvidencePhoto resolved={shot.resolved} />
+                </span>
+                <p className="mt-1.5 px-0.5 text-[0.5rem] font-bold uppercase tracking-wide text-ink-500">
+                  {shot.label}
+                </p>
+                <p className="px-0.5 text-[0.4375rem] leading-tight text-ink-400">{shot.by}</p>
+                <p className="px-0.5 text-[0.4375rem] leading-tight text-ink-300">{shot.when}</p>
+              </Card>
+            ))}
+          </div>
+
+          <Card>
+            <div className="flex items-center gap-2">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-success/10" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" strokeWidth="3" className="h-2.5 w-2.5">
+                  <path d="M4 12.5l5 5 11-11" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span className="min-w-0">
+                <span className="block text-[0.5rem] font-semibold leading-tight text-ink-900">
+                  Resolution photo attached
+                </span>
+                <span className="block text-[0.4375rem] leading-tight text-ink-400">
+                  Kept with the ticket history
+                </span>
+              </span>
+            </div>
+          </Card>
+        </div>
+        <TabBar />
+      </Body>
+    );
+  }
+
   if (variant === 'complaint') {
     return (
       <div className="relative h-[430px] overflow-hidden bg-gradient-to-b from-[#E9F0FB] via-[#F8F9F4] to-[#FBFBF6]">
