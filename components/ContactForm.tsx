@@ -2,7 +2,7 @@
 
 import { useId, useRef, useState, type FormEvent } from 'react';
 import { Button } from '@/components/ui/Button';
-import { contact, contactEndpoint } from '@/config/site';
+import { contact, contactEndpoint, site } from '@/config/site';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -104,7 +104,7 @@ export function ContactForm() {
       const response = await fetch(contactEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ ...values, source: 'anytimehelp.com/contact' }),
+        body: JSON.stringify({ ...values, source: `${site.url}/contact` }),
       });
 
       if (!response.ok) throw new Error(`Request failed with status ${response.status}`);

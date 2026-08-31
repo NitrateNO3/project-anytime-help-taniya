@@ -21,7 +21,7 @@ export const site = {
 } as const;
 
 export const contact: { email: string; phone: string; address: string } = {
-  email: 'support@anytimehelp.com',
+  email: 'support@anytimehelp.in',
   phone: '',           // e.g. '+91 98765 43210' — hidden while empty
   address: '',         // e.g. 'Sector 62, Noida, India' — hidden while empty
 };

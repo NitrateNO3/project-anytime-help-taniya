@@ -29,10 +29,10 @@ Everything below lives in **`config/site.ts`**, apart from the contact endpoint.
 
 | What | Where | Current state |
 |---|---|---|
-| Production domain | `site.url` | `https://anytimehelp.com` — change if the domain differs. Drives canonical URLs, Open Graph tags and `sitemap.xml`. |
+| Production domain | `site.url` | `https://project-anytime-help-taniya.vercel.app` — change once the production domain is live. Drives canonical URLs, Open Graph tags and `sitemap.xml`. |
 | App Store link | `stores.appStore` | `null` → badge shows "Coming soon". |
 | Google Play link | `stores.googlePlay` | `null` → badge shows "Coming soon". |
-| Support email | `contact.email` | `support@anytimehelp.com` |
+| Support email | `contact.email` | `support@anytimehelp.in` |
 | Phone / address | `contact.phone`, `contact.address` | Empty → those rows are hidden entirely. |
 | Social handles | `social` | All empty → the footer's social row does not render. Add a URL and its icon appears. |
 | Contact form | `NEXT_PUBLIC_CONTACT_ENDPOINT` | Unset → the form tells the visitor it isn't connected and offers the email fallback. Point it at any service that accepts a JSON `POST` (Formspree, Resend, Basin, your own API). |
@@ -54,7 +54,7 @@ app/
   features/         Full feature detail page
   about/            About the product
   contact/          Demo request form + direct contact details
-  privacy/  terms/  cookies/     Legal pages
+  privacy/  cookies/  delete-account/   Legal pages
   robots.ts  sitemap.ts          Generated at build time
 components/
   sections/         One file per landing-page section

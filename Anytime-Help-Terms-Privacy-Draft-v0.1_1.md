@@ -208,7 +208,7 @@ A single resident-facing document, with the Privacy & Data Declaration as a clea
 **Applies to:** Residents and authorised occupants of the societies, campuses and facilities that use Anytime Help
 **Operated by:** Anytime Help, [entity type, e.g. a private limited company incorporated under the Companies Act, 2013], CIN [CIN], registered office at [REGISTERED OFFICE ADDRESS] ("**we**", "**us**", "**Anytime Help**")
 **In association with:** the resident welfare association, management committee or facility administrator that runs Anytime Help for your society, campus or facility (the "**RWA**")
-**Contact:** support@anytimehelp.com | **Grievance Officer:** [GRIEVANCE OFFICER NAME], [GRIEVANCE ADDRESS]
+**Contact:** support@anytimehelp.in | **Grievance Officer:** [GRIEVANCE OFFICER NAME], [GRIEVANCE ADDRESS]
 
 ---
 
@@ -279,7 +279,7 @@ Anytime Help is an app for residents of the societies, campuses and facilities t
 
 **4.4 Your credentials.** Keep your password, OTP and other credentials confidential. Do not share your account or let anyone else use it without our written authorisation. You are responsible for activity through your account, except to the extent it results from our own failure.
 
-**4.5 Tell us quickly.** Notify us at support@anytimehelp.com without delay if you suspect unauthorised access, or if your registered mobile number or email is lost or changes.
+**4.5 Tell us quickly.** Notify us at support@anytimehelp.in without delay if you suspect unauthorised access, or if your registered mobile number or email is lost or changes.
 
 **4.6 Accuracy of your details.** Keep your name, unit number and contact details current — complaint routing and legal notices depend on them.
 
@@ -509,7 +509,7 @@ We do **not** sell your personal data.
 
 **19.3** Where separate reporting obligations apply — for example to CERT-In under directions issued under section 70B of the Information Technology Act, 2000 — we will comply with them.
 
-**19.4** If you think there has been a security problem, tell us immediately at support@anytimehelp.com.
+**19.4** If you think there has been a security problem, tell us immediately at support@anytimehelp.in.
 
 ### 20. How long we keep information
 
@@ -551,11 +551,11 @@ Information retained under this clause is restricted to those purposes and is no
 - (f) **complain** to us through clause 31; and
 - (g) **escalate** to the Data Protection Board of India or another competent authority under applicable law.
 
-**21.2 How.** Use the in-app privacy settings, or write to support@anytimehelp.com with enough detail to identify yourself and your request.
+**21.2 How.** Use the in-app privacy settings, or write to support@anytimehelp.in with enough detail to identify yourself and your request.
 
 **21.3 Timing.** We aim to acknowledge within 72 hours and respond substantively within [RESPONSE PERIOD], or sooner where the law requires.
 
-**21.4 Account deletion.** Delete your account yourself from **Profile → Delete My Account** in the app, which takes effect immediately, or email support@anytimehelp.com with the subject "Account Deletion Request" and we will complete it within 48 to 72 hours. We will close the account and delete or de-identify the personal data associated with it, subject to clause 20.3 and to the RWA's own separate records of your residency.
+**21.4 Account deletion.** Delete your account yourself from **Profile → Delete My Account** in the app, which takes effect immediately, or email support@anytimehelp.in with the subject "Account Deletion Request" and we will complete it within 48 to 72 hours. We will close the account and delete or de-identify the personal data associated with it, subject to clause 20.3 and to the RWA's own separate records of your residency.
 
 **21.5 Your duties.** Give accurate information, do not impersonate anyone, do not suppress material information, and do not raise a false or frivolous grievance. The DPDP Act attaches duties and a monetary penalty to these matters.
 
@@ -694,7 +694,7 @@ Information retained under this clause is restricted to those purposes and is no
 > **Grievance Officer**
 > Name: [GRIEVANCE OFFICER NAME]
 > Designation: [DESIGNATION]
-> Email: support@anytimehelp.com
+> Email: support@anytimehelp.in
 > Postal address: [GRIEVANCE ADDRESS]
 > Telephone: [PHONE]
 > Hours: [HOURS]
