@@ -69,7 +69,7 @@ export default function ContactPage() {
                 <div className="mt-8 border-t border-ink-200 pt-6">
                   <h3 className="text-sm font-semibold text-ink-950">Already a resident?</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-ink-500">
-                    {site.name} will be available on both stores at launch.
+                    Get {site.name} on your phone and raise your first complaint in under a minute.
                   </p>
                   <StoreButtons className="mt-4" />
                 </div>

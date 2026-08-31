@@ -2,11 +2,9 @@ import { AppScreenFrame } from '@/components/mockups/AppScreen';
 import { StoreButtons } from '@/components/StoreButtons';
 import { Container, Section } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
-import { site, stores } from '@/config/site';
+import { site } from '@/config/site';
 
 export function AppShowcase() {
-  const storesLive = Boolean(stores.appStore || stores.googlePlay);
-
   return (
     <Section id="download" tone="brand" className="overflow-hidden">
       <Container>
@@ -24,12 +22,6 @@ export function AppShowcase() {
             <div className="mt-8">
               <p className="text-sm font-semibold text-ink-900">Download {site.name}</p>
               <StoreButtons className="mt-3" />
-              {!storesLive && (
-                <p className="mt-4 max-w-sm text-xs leading-relaxed text-ink-500">
-                  Store listings are being prepared. These buttons will link to the live App Store and Google
-                  Play pages as soon as the app is published.
-                </p>
-              )}
             </div>
 
             <div className="mt-8 border-t border-brand-200/60 pt-7">

@@ -69,7 +69,25 @@ export function ContactForm() {
   // Timestamp trap: bots submit near-instantly. Set on first interaction.
   const startedAt = useRef<number | null>(null);
 
-  const isConfigured = Boolean(contactEndpoint);
+  // Until an endpoint is configured the form hands the message to the
+  // visitor's email client rather than dropping it, so no enquiry is lost and
+  // the page needs no "not connected yet" notice.
+  const [handedToEmail, setHandedToEmail] = useState(false);
+
+  function mailtoFor(v: Values) {
+    const subject = `Demo request — ${v.facility.trim() || v.name.trim()}`;
+    const body = [
+      `Name: ${v.name}`,
+      `Society or facility: ${v.facility || '—'}`,
+      `Email: ${v.email}`,
+      `Phone: ${v.phone || '—'}`,
+      `Role: ${v.role || '—'}`,
+      `Size: ${v.facilitySize || '—'}`,
+      '',
+      v.message,
+    ].join('\n');
+    return `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
 
   const set = (key: keyof Values) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     if (startedAt.current === null) startedAt.current = Date.now();
@@ -95,6 +113,15 @@ export function ContactForm() {
     if (honeypot || elapsed < 2000) {
       setStatus('error');
       setServerError('Your submission looked automated. Please try again, or email us directly.');
+      return;
+    }
+
+    if (!contactEndpoint) {
+      window.location.href = mailtoFor(values);
+      setHandedToEmail(true);
+      setStatus('success');
+      setValues(empty);
+      startedAt.current = null;
       return;
     }
 
@@ -126,15 +153,26 @@ export function ContactForm() {
             <path d="M4 12.5l5 5 11-11" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </span>
-        <h3 className="mt-5 text-lg font-semibold text-ink-950">Thanks — we&apos;ve got your request.</h3>
+        <h3 className="mt-5 text-lg font-semibold text-ink-950">
+          {handedToEmail ? 'Your message is ready to send.' : 'Thanks — we’ve got your request.'}
+        </h3>
         <p className="mx-auto mt-2 max-w-sm text-[0.9375rem] leading-relaxed text-ink-600">
-          A member of the Anytime Help team will get back to you shortly. If it&apos;s urgent, email us at{' '}
+          {handedToEmail
+            ? 'We have opened your email app with the details filled in — send it and a member of the Anytime Help team will get back to you shortly. If nothing opened, write to '
+            : 'A member of the Anytime Help team will get back to you shortly. If it’s urgent, email us at '}
           <a href={`mailto:${contact.email}`} className="font-medium text-brand-600 underline underline-offset-4">
             {contact.email}
           </a>
           .
         </p>
-        <Button variant="secondary" className="mt-6" onClick={() => setStatus('idle')}>
+        <Button
+          variant="secondary"
+          className="mt-6"
+          onClick={() => {
+            setHandedToEmail(false);
+            setStatus('idle');
+          }}
+        >
           Send another message
         </Button>
       </div>
@@ -143,20 +181,6 @@ export function ContactForm() {
 
   return (
     <form ref={formRef} onSubmit={onSubmit} noValidate className="space-y-5">
-      {!isConfigured && (
-        <div className="rounded-xl border border-warning/25 bg-warning/5 p-4" role="note">
-          <p className="text-sm font-semibold text-ink-900">This form is not connected yet</p>
-          <p className="mt-1 text-sm leading-relaxed text-ink-600">
-            Set <code className="rounded bg-ink-100 px-1 py-0.5 text-[0.8125rem]">NEXT_PUBLIC_CONTACT_ENDPOINT</code>{' '}
-            to enable submissions. In the meantime, please email{' '}
-            <a href={`mailto:${contact.email}`} className="font-medium text-brand-600 underline underline-offset-4">
-              {contact.email}
-            </a>
-            .
-          </p>
-        </div>
-      )}
-
       {status === 'error' && serverError && (
         <div className="rounded-xl border border-error/25 bg-error/5 p-4" role="alert">
           <p className="text-sm leading-relaxed text-error">
@@ -288,7 +312,7 @@ export function ContactForm() {
         <Button
           type="submit"
           size="lg"
-          disabled={!isConfigured || status === 'submitting'}
+          disabled={status === 'submitting'}
           data-analytics="demo-request"
           className="w-full sm:w-auto"
         >
