@@ -97,8 +97,9 @@ export default function PrivacyPage() {
 
       <h2>9. Your rights</h2>
       <p>
-        You can ask us to access, correct or delete the personal information we hold about you, and to
-        provide a copy of it. Write to <a href={`mailto:${contact.email}`}>{contact.email}</a> and we will
+        You can delete your account and its data yourself from the Profile tab in the app, or by email —
+        see <a href="/delete-account/">Delete Your Account</a> for both routes. You can also ask us to
+        access or correct the personal information we hold about you, and to provide a copy of it. Write to <a href={`mailto:${contact.email}`}>{contact.email}</a> and we will
         respond. Where your facility administrator controls the account, we may need to route the request
         through them.
       </p>

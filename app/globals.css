@@ -52,4 +52,35 @@
   .legal-prose strong {
     @apply font-semibold text-ink-800;
   }
+  .legal-prose ol {
+    @apply mb-4 max-w-prose list-decimal space-y-2 pl-5 marker:text-ink-300;
+  }
+  /* Unfilled placeholders from the legal draft — deliberately hard to miss. */
+  .legal-prose .legal-todo {
+    @apply rounded bg-amber-100 px-1 font-medium text-amber-900;
+  }
+  .legal-prose .legal-callout {
+    @apply my-8 rounded-xl border border-ink-200 bg-ink-50 p-5 sm:p-6;
+  }
+  .legal-prose .legal-callout > :first-child {
+    @apply mt-0;
+  }
+  .legal-prose .legal-callout > :last-child {
+    @apply mb-0;
+  }
+  .legal-table {
+    @apply mb-6 max-w-prose overflow-x-auto rounded-lg border border-ink-200;
+  }
+  .legal-table table {
+    @apply w-full border-collapse text-left text-sm;
+  }
+  .legal-table th {
+    @apply border-b border-ink-200 bg-ink-50 px-3 py-2 font-semibold text-ink-800;
+  }
+  .legal-table td {
+    @apply border-b border-ink-100 px-3 py-2 align-top;
+  }
+  .legal-table tr:last-child td {
+    @apply border-b-0;
+  }
 }
