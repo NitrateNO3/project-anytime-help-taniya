@@ -16,16 +16,8 @@ By accessing or using the Platform, you acknowledge that you have read and under
 
 The Platform is operated by:
 
-**[COMPANY LEGAL NAME]**
-**Registered Office:** [REGISTERED OFFICE ADDRESS]
+**Anytime Help Technologies Private Limited**
 **Email:** [support@anytimehelp.in](mailto:support@anytimehelp.in)
-
-Where the Platform is operated in association with a Resident Welfare Association ("RWA"):
-
-**RWA Name:** [RWA LEGAL NAME]
-**RWA Contact:** [RWA CONTACT DETAILS]
-
-The company and the relevant RWA may have different responsibilities regarding personal information depending on how the Platform is operated and who determines the purposes for which information is processed.
 
 ---
 
@@ -592,7 +584,7 @@ You may request deletion of your Anytime Help account.
 
 You can request account deletion through:
 
-**[IN-APP ACCOUNT DELETION OPTION]**
+**Profile → Delete My Account** in the app
 
 or by contacting:
 

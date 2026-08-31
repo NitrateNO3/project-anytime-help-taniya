@@ -97,13 +97,14 @@ while i < len(body):
     i = j
 
 doc = ''.join(out)
-assert '<mark' in doc and '<h2>' in doc and '\x00' not in doc
+# Nothing unfilled may reach the published policy — a [BRACKETED] item left in
+# the source would render highlighted with nothing on the page explaining it.
+assert '<mark' not in doc, 'unfilled placeholder in ' + SRC
+assert '<h2>' in doc and '\x00' not in doc
 io.open(OUT, 'w', encoding='utf-8', newline='\n').write(
     '/**\n'
     ' * Privacy Policy — %s converted to HTML verbatim.\n'
-    ' * Every [BRACKETED] item is a placeholder from that document and renders\n'
-    ' * highlighted. Edit the source document and run scripts/build-legal.py —\n'
-    ' * never this file.\n'
+    ' * Edit the source document and run scripts/build-legal.py — never this file.\n'
     ' */\n'
     'export const %s = ' % (SRC, EXPORT) + json.dumps(doc, ensure_ascii=False) + ';\n')
 print('h2:', doc.count('<h2>'), 'h3:', doc.count('<h3>'), 'h4:', doc.count('<h4>'),
