@@ -12,9 +12,10 @@ type LogoProps = {
  * The official Anytime Help lockup, used whole and uncropped: the cradled-home
  * mark with the "Anytime Help" wordmark beneath it, exactly as supplied.
  *
- * The artwork lives at /public/logo.png. Its white background has been made
- * transparent so the lockup sits correctly on the footer's tinted surface as
- * well as on white — no artwork was removed, only the blank margin around it.
+ * The artwork lives at /public/logo.png, exported from images/anytime-help-logo.png.
+ * Its flat background has been knocked out so the lockup sits correctly on the
+ * footer's tinted surface as well as on white — no artwork was removed, only
+ * the blank margin around it.
  */
 export function Logo({ withTagline = false, className = 'h-14' }: LogoProps) {
   return (
@@ -22,8 +23,8 @@ export function Logo({ withTagline = false, className = 'h-14' }: LogoProps) {
       <Image
         src="/logo.png"
         alt={`${site.name} logo`}
-        width={587}
-        height={582}
+        width={539}
+        height={560}
         priority
         className={`w-auto ${className}`}
       />

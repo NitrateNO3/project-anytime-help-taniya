@@ -16,7 +16,7 @@ export const site = {
   shortDescription: 'Smart society, smart maintenance — for residents, staff and admins.',
   // Update to the production domain before deploying — used for canonical
   // URLs, Open Graph tags and sitemap.xml.
-  url: 'https://anytimehelp.com',
+  url: 'https://project-anytime-help-taniya.vercel.app',
   locale: 'en_IN',
 } as const;
 
