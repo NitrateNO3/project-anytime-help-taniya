@@ -16,7 +16,7 @@ By accessing or using the Platform, you acknowledge that you have read and under
 
 The Platform is operated by:
 
-**Anytime Help Technologies Private Limited**
+**Anytime Help**, a sole proprietorship of **Abhishek Yadav**
 **Email:** [support@anytimehelp.in](mailto:support@anytimehelp.in)
 
 ---
@@ -938,6 +938,19 @@ For:
 please email:
 
 **[support@anytimehelp.in](mailto:support@anytimehelp.in)**
+
+### Grievance contact
+
+For privacy or data-related grievances:
+
+**Organisation:** ANYTIME HELP
+**Proprietor:** Abhishek Yadav
+**Email:** [support@anytimehelp.in](mailto:support@anytimehelp.in)
+**Address:** Rajender Singh, VPO Wazirabad, Gurugram, Haryana – 122003, India
+
+We aim to acknowledge privacy-related requests within 24–72 hours and respond within the period required by applicable law.
+
+If a separate Data Protection Officer is required to be appointed under applicable law, the relevant details will be added to this Privacy Policy after such appointment.
 
 # 37. PRIVACY POLICY VERSION
 
