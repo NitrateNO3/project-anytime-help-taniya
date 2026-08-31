@@ -109,7 +109,12 @@ switches it all off.
 `components/mockups/AppScreen.tsx` renders each phone screen. Screens with a real exported
 screenshot use it; the rest are CSS renderings drawn to match the app's design. The
 `screenshots` map at the top of that file decides which is which — drop a new export into
-`public/images/`, add an entry, and it replaces the mockup with no other changes.
+`public/images/`, add an entry, and it replaces the mockup with no other changes. Raise a
+Complaint, Announcements and Settings are real screenshots today; Complaints, Tracking, Evidence,
+Staff and Admin are still drawn.
+
+Exports are cropped above the phone's own status bar and resized to 900px wide (JPEG, q82) —
+the originals live in `images/`.
 
 ---
 

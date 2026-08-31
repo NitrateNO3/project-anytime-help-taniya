@@ -116,7 +116,8 @@ export type ScreenVisual =
   | 'evidence'
   | 'announcements'
   | 'staff'
-  | 'admin';
+  | 'admin'
+  | 'settings';
 
 export const features: Feature[] = [
   {

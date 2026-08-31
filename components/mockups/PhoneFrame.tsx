@@ -79,12 +79,17 @@ export function PhoneShot({
   className = '',
   glow = false,
   priority = false,
+  width = 900,
+  height = 1821,
 }: {
   src: string;
   label: string;
   className?: string;
   glow?: boolean;
   priority?: boolean;
+  /** The file's real pixel size — reserves the right box so nothing shifts on load. */
+  width?: number;
+  height?: number;
 }) {
   return (
     <PhoneFrame label={label} className={className} glow={glow} statusBar="none">
@@ -92,8 +97,8 @@ export function PhoneShot({
       <img
         src={src}
         alt=""
-        width={900}
-        height={1821}
+        width={width}
+        height={height}
         loading={priority ? 'eager' : 'lazy'}
         // eslint-disable-next-line @next/next/no-img-element
         fetchPriority={priority ? 'high' : undefined}

@@ -8,10 +8,21 @@ import { PhoneFrame, PhoneShot } from '@/components/mockups/PhoneFrame';
  */
 
 /** Screens we have a real exported screenshot for. */
-const screenshots: Partial<Record<ScreenVisual, { src: string; label: string }>> = {
+const screenshots: Partial<
+  Record<ScreenVisual, { src: string; label: string; width?: number; height?: number }>
+> = {
   raise: {
     src: '/images/screen-raise.jpg',
     label: 'Anytime Help app — the Raise a Complaint form with category, location, description and photo upload',
+  },
+  announcements: {
+    src: '/images/screen-announcements.jpg',
+    label: 'Anytime Help app — the Announcements feed, with society notices from the RWA and residents',
+    height: 1949,
+  },
+  settings: {
+    src: '/images/screen-settings.jpg',
+    label: 'Anytime Help app — the Settings screen with the resident profile, language preference and logout',
   },
 };
 
@@ -337,47 +348,6 @@ export function AppScreen({ variant }: { variant: ScreenVisual }) {
     );
   }
 
-  if (variant === 'announcements') {
-    return (
-      <Body>
-        <TopBar title="Explore Society" sub="Announcements" />
-        <div className="px-3 py-2.5">
-          <div className="flex gap-1.5" aria-hidden="true">
-            <span className="rounded-full bg-white px-2.5 py-1 text-[0.5rem] font-semibold text-ink-500 ring-1 ring-ink-100">
-              My Complaints
-            </span>
-            <span className="rounded-full bg-brand-600 px-2.5 py-1 text-[0.5rem] font-semibold text-white">
-              Announcements
-            </span>
-          </div>
-
-          <div className="mt-2.5 rounded-xl bg-brand-600 p-2.5 text-white shadow-sm">
-            <p className="text-[0.4375rem] font-semibold uppercase tracking-wide text-brand-200">Notice · Today</p>
-            <p className="mt-1 text-[0.625rem] font-semibold leading-tight">Water supply off 10am–1pm</p>
-            <p className="mt-1 text-[0.5rem] leading-snug text-brand-100">
-              Tank cleaning in Blocks A and B. Please store water in advance.
-            </p>
-          </div>
-
-          <div className="mt-2 space-y-2">
-            {[
-              ['Lift maintenance — Block C', 'Scheduled for Saturday, 8am to 11am.', '2 days ago'],
-              ['New security desk timings', 'Visitor entry now closes at 10:30pm.', '5 days ago'],
-              ['Diwali cleaning drive', 'Volunteers meet at the clubhouse, 9am.', '1 week ago'],
-            ].map(([title, body, when]) => (
-              <Card key={title}>
-                <p className="text-[0.5625rem] font-semibold leading-tight text-ink-900">{title}</p>
-                <p className="mt-1 text-[0.5rem] leading-snug text-ink-500">{body}</p>
-                <p className="mt-1.5 text-[0.4375rem] uppercase tracking-wide text-ink-300">{when}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-        <TabBar />
-      </Body>
-    );
-  }
-
   if (variant === 'staff') {
     return (
       <Body>
@@ -502,7 +472,17 @@ export function AppScreenFrame({
 }) {
   const shot = screenshots[variant];
   if (shot) {
-    return <PhoneShot src={shot.src} label={shot.label} className={className} glow={glow} priority={priority} />;
+    return (
+      <PhoneShot
+        src={shot.src}
+        label={shot.label}
+        width={shot.width}
+        height={shot.height}
+        className={className}
+        glow={glow}
+        priority={priority}
+      />
+    );
   }
   return (
     <PhoneFrame label={label} className={className} glow={glow}>

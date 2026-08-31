@@ -44,20 +44,29 @@ export function AppShowcase() {
           <div className="lg:col-span-7">
             <Reveal>
               {/* Fixed widths, not percentages, so the row can never outgrow
-                  its column. One device on mobile, two from tablet up. */}
-              <div className="flex items-end justify-center gap-4">
-                <div className="w-full max-w-[16rem] shrink-0 sm:w-64 sm:max-w-none sm:-translate-y-8">
+                  its column. One device on mobile, two from tablet, three from
+                  xl — where they narrow to 12rem, because the seven-column
+                  track is only ~646px wide even at the container's full size. */}
+              <div className="flex items-end justify-center gap-4 xl:gap-3">
+                <div className="w-full max-w-[16rem] shrink-0 sm:w-64 sm:max-w-none sm:-translate-y-8 xl:w-48">
                   <AppScreenFrame
                     variant="raise"
                     className="w-full"
                     label="Anytime Help app — raising a complaint with category, location, description and photos"
                   />
                 </div>
-                <div className="hidden w-64 shrink-0 sm:block">
+                <div className="hidden w-64 shrink-0 sm:block xl:w-48">
                   <AppScreenFrame
                     variant="tracking"
                     className="w-full"
                     label="Anytime Help app — tracking a complaint through Pending, In Progress and Done"
+                  />
+                </div>
+                <div className="hidden w-48 shrink-0 xl:block xl:-translate-y-8">
+                  <AppScreenFrame
+                    variant="settings"
+                    className="w-full"
+                    label="Anytime Help app — the Settings screen with profile, language and logout"
                   />
                 </div>
               </div>
