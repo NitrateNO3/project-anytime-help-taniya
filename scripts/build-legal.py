@@ -1,26 +1,44 @@
 # -*- coding: utf-8 -*-
-"""Part C of the legal draft -> the static HTML rendered by app/terms/page.tsx.
+"""Privacy Policy markdown -> the static HTML rendered by app/privacy/page.tsx.
 
 The markdown document is the source of truth. After editing it, run from the
-project root:  python scripts/build-terms.py
+project root:  python scripts/build-legal.py
 """
 import io, json, re, html
 
-SRC = 'Anytime-Help-Terms-Privacy-Draft-v0.1_1.md'
-lines = io.open(SRC, encoding='utf-8').read().split('\n')
+SRC = 'Anytime-Help-Privacy-Policy-v1.0.md'
+OUT = 'app/privacy/content.ts'
+EXPORT = 'privacyHtml'
 
-start = next(i for i, l in enumerate(lines) if l.startswith('# ANYTIME HELP — RESIDENT TERMS'))
-end = next(i for i, l in enumerate(lines) if l.startswith('*End of resident-facing document.*'))
-body = lines[start + 1:end]
+lines = io.open(SRC, encoding='utf-8').read().split('\n')
+# The page header renders the document title, so start below it.
+start = next(i for i, l in enumerate(lines) if l.startswith('# ANYTIME HELP — PRIVACY POLICY'))
+body = lines[start + 1:]
+
+LINK = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
+
 
 def inline(s):
     s = html.escape(s, quote=False)
+
+    # Markdown links become anchors first and are parked as sentinels, so the
+    # placeholder and bare-email passes below cannot chew through them.
+    links = []
+
+    def park(m):
+        links.append('<a href="%s">%s</a>' % (m.group(2), m.group(1)))
+        return '\x00%d\x00' % (len(links) - 1)
+
+    s = LINK.sub(park, s)
+
     s = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', s)
     s = re.sub(r'\*(.+?)\*', r'<em>\1</em>', s)
-    # every [BRACKETED] item is an unfilled placeholder or a drafting note
+    # every remaining [BRACKETED] item is a placeholder nobody has filled in yet
     s = re.sub(r'\[([^\]]+)\]', r'<mark class="legal-todo">[\1]</mark>', s)
     s = re.sub(r'([\w.+-]+@[\w-]+\.[\w.]+)', r'<a href="mailto:\1">\1</a>', s)
-    return s
+
+    return re.sub(r'\x00(\d+)\x00', lambda m: links[int(m.group(1))], s)
+
 
 def render(block, out):
     """block: list of markdown lines already stripped of any '> ' prefix."""
@@ -32,7 +50,7 @@ def render(block, out):
             continue
         m = re.match(r'^(#{1,6}) (.*)$', line)
         if m:
-            level = 2 if len(m.group(1)) <= 2 else 3   # PART headings h2, clauses h3
+            level = min(len(m.group(1)) + 1, 4)    # sections h2, subsections h3, the rest h4
             out.append('<h%d>%s</h%d>' % (level, inline(m.group(2)), level))
             i += 1
             continue
@@ -49,9 +67,9 @@ def render(block, out):
                        + ''.join('<tr>' + ''.join('<td>%s</td>' % inline(c) for c in r) + '</tr>' for r in rest)
                        + '</tbody></table></div>')
             continue
-        if line.startswith('- '):                  # bullet list
+        if re.match(r'^[-*] ', line):              # bullet list
             items = []
-            while i < len(block) and block[i].startswith('- '):
+            while i < len(block) and re.match(r'^[-*] ', block[i]):
                 items.append(block[i][2:].strip())
                 i += 1
             out.append('<ul>' + ''.join('<li>%s</li>' % inline(it) for it in items) + '</ul>')
@@ -59,10 +77,11 @@ def render(block, out):
         out.append('<p>%s</p>' % inline(line))
         i += 1
 
+
 out = []
 i = 0
 while i < len(body):
-    if body[i].startswith('>'):                    # callout: emergency notice, arbitration note
+    if body[i].startswith('>'):                    # callout
         quote = []
         while i < len(body) and body[i].startswith('>'):
             quote.append(re.sub(r'^> ?', '', body[i]))
@@ -78,13 +97,14 @@ while i < len(body):
     i = j
 
 doc = ''.join(out)
-assert '<mark' in doc and '<table>' in doc and 'legal-callout' in doc
-io.open('app/terms/content.ts', 'w', encoding='utf-8', newline='\n').write(
+assert '<mark' in doc and '<h2>' in doc and '\x00' not in doc
+io.open(OUT, 'w', encoding='utf-8', newline='\n').write(
     '/**\n'
-    ' * Resident Terms & Conditions — Part C of Anytime-Help-Terms-Privacy-Draft-v0.1_1.md,\n'
-    ' * converted to HTML verbatim. Every [BRACKETED] item is an unfilled placeholder from\n'
-    ' * that draft and renders highlighted; the draft is not for production until they are\n'
-    ' * filled in. Edit the source document and run scripts/build-terms.py — never this file.\n'
+    ' * Privacy Policy — %s converted to HTML verbatim.\n'
+    ' * Every [BRACKETED] item is a placeholder from that document and renders\n'
+    ' * highlighted. Edit the source document and run scripts/build-legal.py —\n'
+    ' * never this file.\n'
     ' */\n'
-    'export const termsHtml = ' + json.dumps(doc, ensure_ascii=False) + ';\n')
-print('sections:', doc.count('<h3>'), 'tables:', doc.count('<table>'), 'placeholders:', doc.count('<mark'), 'bytes:', len(doc))
+    'export const %s = ' % (SRC, EXPORT) + json.dumps(doc, ensure_ascii=False) + ';\n')
+print('h2:', doc.count('<h2>'), 'h3:', doc.count('<h3>'), 'h4:', doc.count('<h4>'),
+      'links:', doc.count('<a '), 'placeholders:', doc.count('<mark'), 'bytes:', len(doc))

@@ -148,8 +148,8 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/terms/" className="rounded transition-colors hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">
-                Terms of Service
+              <Link href="/delete-account/" className="rounded transition-colors hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">
+                Delete Account
               </Link>
             </li>
           </ul>

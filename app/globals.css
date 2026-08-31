@@ -55,8 +55,12 @@
   .legal-prose ol {
     @apply mb-4 max-w-prose list-decimal space-y-2 pl-5 marker:text-ink-300;
   }
-  /* Unfilled placeholders from the legal draft — deliberately hard to miss. */
-  .legal-prose .legal-todo {
+  .legal-prose h4 {
+    @apply mb-2 mt-5 text-[0.9375rem] font-semibold text-ink-900;
+  }
+  /* Unfilled placeholders in a legal document — deliberately hard to miss.
+     Unscoped so the notice above the document styles them too. */
+  .legal-todo {
     @apply rounded bg-amber-100 px-1 font-medium text-amber-900;
   }
   .legal-prose .legal-callout {

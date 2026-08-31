@@ -10,7 +10,6 @@ const routes = [
   { path: '/contact/', priority: 0.8, changeFrequency: 'yearly' as const },
   { path: '/about/', priority: 0.6, changeFrequency: 'yearly' as const },
   { path: '/privacy/', priority: 0.3, changeFrequency: 'yearly' as const },
-  { path: '/terms/', priority: 0.3, changeFrequency: 'yearly' as const },
   { path: '/cookies/', priority: 0.3, changeFrequency: 'yearly' as const },
   { path: '/delete-account/', priority: 0.3, changeFrequency: 'yearly' as const },
 ];
