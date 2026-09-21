@@ -61,7 +61,10 @@ export function Hero() {
               className="mt-8 flex flex-col gap-3 sm:flex-row motion-safe:animate-fade-up"
               style={{ animationDelay: '180ms' }}
             >
-              <Button href="#download" size="lg" className="sm:w-auto" data-analytics="download-click">
+              <Button href="/free-trial/" size="lg" className="sm:w-auto" data-analytics="free-trial-click">
+                Book Your Free Trial
+              </Button>
+              <Button href="#download" variant="secondary" size="lg" className="sm:w-auto" data-analytics="download-click">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="h-[1.05rem] w-[1.05rem]" aria-hidden="true">
                   <path d="M12 3.5v11M7.5 10.5l4.5 4.5 4.5-4.5M4.5 19h15" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

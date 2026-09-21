@@ -59,7 +59,7 @@ const fieldBase =
   'block w-full rounded-xl border bg-white px-3.5 py-2.5 text-[0.9375rem] text-ink-900 placeholder:text-ink-400 ' +
   'transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500';
 
-export function ContactForm() {
+export function ContactForm({ submitLabel = 'Request a Demo' }: { submitLabel?: string } = {}) {
   const uid = useId();
   const [values, setValues] = useState<Values>(empty);
   const [errors, setErrors] = useState<Errors>({});
@@ -322,7 +322,7 @@ export function ContactForm() {
               <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
             </svg>
           )}
-          {status === 'submitting' ? 'Sending…' : 'Request a Demo'}
+          {status === 'submitting' ? 'Sending…' : submitLabel}
         </Button>
         <p className="text-xs leading-relaxed text-ink-500">
           We&apos;ll only use your details to respond to this enquiry.

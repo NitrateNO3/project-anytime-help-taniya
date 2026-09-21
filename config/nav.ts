@@ -20,6 +20,7 @@ export const footerNav = [
       { label: 'How It Works', href: '/#how-it-works' },
       { label: 'For Everyone', href: '/#for-everyone' },
       { label: 'Download App', href: '/#download' },
+      { label: 'Book Your Free Trial', href: '/free-trial/' },
     ],
   },
   {

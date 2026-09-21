@@ -42,8 +42,8 @@ export const social: Record<SocialKey, string> = {
  * until a real URL is set — never a fake or dead store link.
  */
 export const stores: { appStore: string | null; googlePlay: string | null } = {
-  appStore: null,
-  googlePlay: null,
+  appStore: 'https://apps.apple.com/in/app/anytime-help/id6806641101',
+  googlePlay: 'https://play.google.com/store/apps/details?id=com.aman_mirza.app',
 };
 
 /**

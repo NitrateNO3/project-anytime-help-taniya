@@ -25,7 +25,10 @@ export function CTA() {
               Download the app to start reporting, and let your facility resolve issues faster.
             </p>
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-              <Button href="/#download" size="lg" data-analytics="download-click">
+              <Button href="/free-trial/" size="lg" data-analytics="free-trial-click">
+                Book Your Free Trial
+              </Button>
+              <Button href="/#download" variant="secondary" size="lg" data-analytics="download-click">
                 Download App
               </Button>
             </div>

@@ -77,8 +77,11 @@ export function Navbar() {
             </ul>
 
             <div className="hidden items-center gap-2.5 lg:flex">
-              <Button href="/#download" size="sm" data-analytics="download-click">
+              <Button href="/#download" variant="secondary" size="sm" data-analytics="download-click">
                 Download App
+              </Button>
+              <Button href="/free-trial/" size="sm" data-analytics="free-trial-click">
+                Book Your Free Trial
               </Button>
             </div>
 
@@ -125,7 +128,10 @@ export function Navbar() {
               ))}
             </ul>
             <div className="mt-6 flex flex-col gap-3 pb-8">
-              <Button href="/#download" size="lg" className="w-full">
+              <Button href="/free-trial/" size="lg" className="w-full" data-analytics="free-trial-click">
+                Book Your Free Trial
+              </Button>
+              <Button href="/#download" variant="secondary" size="lg" className="w-full">
                 Download App
               </Button>
             </div>

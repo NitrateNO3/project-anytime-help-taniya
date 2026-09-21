@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Logo } from '@/components/Logo';
+import { SiteCredits } from '@/components/SiteCredits';
 import { StoreButtons } from '@/components/StoreButtons';
 import { Container } from '@/components/ui/Section';
 import { footerNav } from '@/config/nav';
@@ -137,7 +138,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-ink-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 border-t border-ink-200 pt-8">
+          <SiteCredits />
+        </div>
+
+        <div className="mt-8 flex flex-col gap-3 border-t border-ink-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-ink-500">
             © {year} {site.name}. All rights reserved.
           </p>
