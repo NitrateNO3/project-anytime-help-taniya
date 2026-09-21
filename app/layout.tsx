@@ -59,6 +59,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      // Browsers pick the tab icon from here. Without the small sizes they
+      // downscale the 192 themselves, which comes out blurrier than a
+      // purpose-rendered 16.
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+      { url: '/icon-16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/icon-32.png', sizes: '32x32', type: 'image/png' },
       { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
       { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
