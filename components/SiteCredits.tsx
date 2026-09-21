@@ -32,20 +32,20 @@ function CreditBadge({ label, name, href, src, tone }: Credit) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-3 rounded-2xl bg-white px-3 py-2.5 ring-1 ring-inset ring-ink-200 transition-colors hover:ring-ink-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+      className="inline-flex items-center gap-3 rounded-2xl bg-white/[0.06] px-3 py-2.5 ring-1 ring-inset ring-white/10 transition-colors hover:bg-white/[0.1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
     >
       <span
-        className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl shadow-xs ${
-          tone === 'dark' ? 'bg-[#0B0B0F]' : 'bg-white ring-1 ring-inset ring-ink-200'
+        className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl shadow-sm ${
+          tone === 'dark' ? 'bg-[#0B0B0F] ring-1 ring-inset ring-white/10' : 'bg-white'
         }`}
       >
         <Image src={src} alt="" aria-hidden="true" width={192} height={192} className="h-7 w-7 object-contain" />
       </span>
       <span className="flex flex-col leading-none">
-        <span className="text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-ink-500">
+        <span className="text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-ink-400">
           {label}
         </span>
-        <span className="mt-1.5 text-[0.9375rem] font-bold text-ink-950">{name}</span>
+        <span className="mt-1.5 text-[0.9375rem] font-bold text-white">{name}</span>
       </span>
     </a>
   );

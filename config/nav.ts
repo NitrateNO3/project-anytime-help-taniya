@@ -36,7 +36,7 @@ export const footerNav = [
     links: [
       { label: 'Privacy Policy', href: '/privacy/' },
       { label: 'Cookie Policy', href: '/cookies/' },
-      { label: 'Delete Account', href: '/delete-account/' },
+      { label: 'Delete Account', href: '/delete-account/', danger: true },
     ],
   },
 ] as const;

@@ -10,7 +10,14 @@ const shell =
   'inline-flex h-[3.25rem] items-center gap-3 rounded-xl px-4 transition-colors duration-150 ' +
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2';
 
-function badgeClasses(live: boolean) {
+type Tone = 'light' | 'dark';
+
+function badgeClasses(tone: Tone, live: boolean) {
+  if (tone === 'dark') {
+    return live
+      ? `${shell} bg-white text-ink-950 shadow-sm hover:bg-ink-100 focus-visible:ring-offset-ink-950`
+      : `${shell} cursor-default bg-white/5 text-ink-400 ring-1 ring-inset ring-white/15`;
+  }
   return live
     ? `${shell} bg-ink-900 text-white shadow-sm hover:bg-ink-800`
     : `${shell} cursor-default bg-white text-ink-400 shadow-xs ring-1 ring-inset ring-ink-200`;
@@ -18,11 +25,13 @@ function badgeClasses(live: boolean) {
 
 function Badge({
   href,
+  tone,
   icon,
   small,
   large,
 }: {
   href: string | null;
+  tone: Tone;
   icon: React.ReactNode;
   small: string;
   large: string;
@@ -46,7 +55,7 @@ function Badge({
 
   if (!live) {
     return (
-      <span className={badgeClasses(false)} role="img" aria-label={label} title={`${site.name} ${label}`}>
+      <span className={badgeClasses(tone, false)} role="img" aria-label={label} title={`${site.name} ${label}`}>
         {content}
       </span>
     );
@@ -57,7 +66,7 @@ function Badge({
       href={href!}
       target="_blank"
       rel="noopener noreferrer"
-      className={badgeClasses(true)}
+      className={badgeClasses(tone, true)}
       aria-label={label}
       data-analytics={large === 'App Store' ? 'app-store-click' : 'google-play-click'}
     >
@@ -81,11 +90,11 @@ const PlayIcon = (
   </svg>
 );
 
-export function StoreButtons({ className = '' }: { className?: string }) {
+export function StoreButtons({ tone = 'light', className = '' }: { tone?: Tone; className?: string }) {
   return (
     <div className={`flex flex-wrap gap-3 ${className}`}>
-      <Badge href={stores.appStore} icon={AppleIcon} small="Download on the" large="App Store" />
-      <Badge href={stores.googlePlay} icon={PlayIcon} small="Get it on" large="Google Play" />
+      <Badge href={stores.appStore} tone={tone} icon={AppleIcon} small="Download on the" large="App Store" />
+      <Badge href={stores.googlePlay} tone={tone} icon={PlayIcon} small="Get it on" large="Google Play" />
     </div>
   );
 }
